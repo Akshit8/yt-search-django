@@ -1,0 +1,6 @@
+.github
+.vscode
+env
+__pycache__
+yt
+db.sqlite3
