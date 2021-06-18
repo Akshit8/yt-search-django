@@ -1,0 +1,9 @@
+echo "freezing requirements"
+
+pip freeze > requirements.txt
+
+if git diff --exit-code requirements.txt
+then
+  git add .
+  git commit -m "committing latest requirements file"
+fi

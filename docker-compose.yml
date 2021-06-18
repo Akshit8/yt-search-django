@@ -9,14 +9,12 @@ services:
     environment:
       - discovery.type=single-node
 
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.13.0
-    ports:
-      - 5601:5601
-    environment:
-      ELASTICSEARCH_URL: http://elasticsearch:9200
-      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
-    depends_on:
-      - elasticsearch
+  yt-worker:
+    image: Akshit8/yt-worker
+    env_file: .env
 
-      
+  api:
+    image: Akshit8/yt-search-django
+    ports:
+      - 8000:8000
+    environment: .env

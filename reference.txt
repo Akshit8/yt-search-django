@@ -1,0 +1,5 @@
+http://blog.adnansiddiqi.me/getting-started-with-elasticsearch-7-in-python/
+https://elasticsearch-py.readthedocs.io/en/master/api.html#elasticsearch
+https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html
+https://django-elasticsearch-dsl-drf.readthedocs.io/en/latest/advanced_usage_examples.html#pagination
+https://stackoverflow.com/questions/474528/what-is-the-best-way-to-repeatedly-execute-a-function-every-x-seconds
