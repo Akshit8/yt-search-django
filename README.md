@@ -32,8 +32,7 @@ make sure you use the network created by `docker-compose`, otherwise worker won'
 
 <img src=".github/assets/yt-search-archv2.png">
 
-- For better scaling and de-coupling, deploy `yt-worker` using a serverless component.
-- Use gunicorn for better performance of API.
+For better scaling and de-coupling, deploy `yt-worker` using a serverless component.
 
 ## Sample requests
 
