@@ -83,7 +83,7 @@ if __name__ == '__main__':
                 for q in queries:
                     print(q)
                     searchVideosAndIndex(es, q, 5)
-                    s.enter(24 * 60 * 60, 1, startWorker, (sc, ))
+                s.enter(24 * 60 * 60, 1, startWorker, (sc, ))
             except HttpError as err:
                 print(err)
                 exit()
