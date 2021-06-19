@@ -65,6 +65,11 @@ if __name__ == '__main__':
     try:
         print("starting yt worker")
 
+        # buffer time to ensure elasticsearch is accepting connections
+        # not suitable for production
+        # specifically done for compose as wait.sh not working
+        # time.sleep(20)
+        
         es = getElasticClient()
         if es == None:
             raise Exception("unable to connect to elastic search")
