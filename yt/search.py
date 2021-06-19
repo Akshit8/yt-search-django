@@ -1,6 +1,7 @@
 import sched
 import time
 import os
+from datetime import datetime, timezone, timedelta
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -35,35 +36,35 @@ def getClient():
 def searchVideosAndIndex(es, query, limit):
     youtube = getClient()
 
+    # searches all videos published in last 24hrs.
+    # To avoid collision 100% i.e no same video is retrieved, retrieve the timestamp of latest
+    # video from elastic search and use it.
+    published_after = (datetime.now(timezone.utc) - timedelta(days=1)).astimezone().isoformat()
+
     response = youtube.search().list(
         q=query,
         part='snippet',
         type='video',
-        maxResults=limit
+        maxResults=limit,
+        publishedAfter=published_after
     ).execute()
 
     for video in response['items']:
-        id = video['id']['videoId']
-
         video = {
+            'id' : video['id']['videoId'],
             'title': video['snippet']['title'],
             'description': video['snippet']['description'],
             'published_at': video['snippet']['publishTime'],
             'thumbnail': video['snippet']['thumbnails']['default']['url']
         }
 
-        indexVideo(
-            es,
-            id,
-            video
-        )
+        indexVideo(es, video)
     
-
 
 if __name__ == '__main__':
     try:
         print("starting yt worker")
-        
+
         es = getElasticClient()
         if es == None:
             raise Exception("unable to connect to elastic search")

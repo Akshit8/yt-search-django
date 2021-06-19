@@ -10,11 +10,17 @@ services:
       - discovery.type=single-node
 
   yt-worker:
-    image: Akshit8/yt-worker
+    image: akshit8/yt-worker
     env_file: .env
+    depends_on: 
+      - elasticsearch
+
 
   api:
-    image: Akshit8/yt-search-django
+    image: akshit8/yt-search-django
     ports:
       - 8000:8000
-    environment: .env
+    environment:
+      ELASTICSEARCH_HOST: elasticsearch:9200
+    depends_on: 
+      - elasticsearch

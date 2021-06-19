@@ -6,6 +6,8 @@ VIDEO_INDEX = Index('videos')
 
 @VIDEO_INDEX.doc_type
 class VideoDocument(Document):
+    id = fields.TextField(attr='id')
+
     title = fields.TextField(
         fields={
             'raw':{

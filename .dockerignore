@@ -4,3 +4,7 @@ env
 __pycache__
 yt
 db.sqlite3
+.env
+.sample.env
+docker-compose.yml
+Makefile

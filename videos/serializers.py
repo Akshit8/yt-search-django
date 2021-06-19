@@ -8,5 +8,5 @@ class VideoDocumentSerializer(DocumentSerializer):
         model = VideoModel
         document = VideoDocument
 
-        fields = ('title', 'description', 'published_at', 'thumbnail')
+        fields = ('id', 'title', 'description', 'published_at', 'thumbnail')
 

@@ -13,7 +13,6 @@ def getElasticClient():
         'host': ELASTICSEARCH_HOST,
         'port': ELASTICSEARCH_PORT
     }])
-
     if es.ping():
         return es
     
@@ -21,13 +20,12 @@ def getElasticClient():
 
 # indexes given video in elastic-search
 # replace this query with bulk indexing
-def indexVideo(es: Elasticsearch, id, body):
+def indexVideo(es: Elasticsearch, body):
     try:
         # will autocreate the index if not exists.
         es.index(
             index=VIDEO_INDEX,
             doc_type='_doc',
-            id=id,
             body=body
         )
         print("video indexed sucessfully")
