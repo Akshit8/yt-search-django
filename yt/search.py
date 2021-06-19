@@ -83,7 +83,7 @@ if __name__ == '__main__':
                 print(err)
                 exit()
 
-        s.enter(2, 1, startWorker, (s,))
+        s.enter(10, 1, startWorker, (s,))
         s.run()
     except Exception as ex:
         print(ex)
