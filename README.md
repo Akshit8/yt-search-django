@@ -20,7 +20,7 @@ docker-compose up -d
 
 This will start elasticsearch instance and our django rest api.<br/>
 
-To verify elasticsearch is ready and accepting connections ping `localhost:9200`, if it's running and accepting requests start the `yt-worker` using following command
+To verify elasticsearch is ready and accepting connections, ping `localhost:9200`, if it's running and accepting requests, start the `yt-worker` using following command.
 
 ```bash
 docker run -it --rm --env-file .env --network yt-search-django_default akshit8/yt-worker
@@ -33,7 +33,7 @@ make sure you use the network created by `docker-compose`, otherwise worker won'
 <img src=".github/assets/yt-search-archv2.png">
 
 - For better scaling and de-coupling, deploy `yt-worker` using a serverless component.
-- Use gunicorn for better performance of api.
+- Use gunicorn for better performance of API.
 
 ## Sample requests
 
@@ -57,7 +57,7 @@ http://localhost:8000/videos/?limit=5&search=blockhain%20crypto
 
 ## Note
 
-Elasticsearch takes 15-20 seconds to start, so make sure to wait before deploying other artifacts
+Elasticsearch takes 15-20 seconds to start, so make sure to wait before deploying other artifacts.
 
 ## Resource
 
