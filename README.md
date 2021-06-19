@@ -66,6 +66,8 @@ Elasticsearch takes 15-20 seconds to start, so make sure to wait before deployin
 - [elasticsearch mappings](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)
 - [elasticsearch and drf](https://django-elasticsearch-dsl-drf.readthedocs.io/en/latest/advanced_usage_examples.html#pagination)
 - [scheduler in python](https://stackoverflow.com/questions/474528/what-is-the-best-way-to-repeatedly-execute-a-function-every-x-seconds)
+- [healthcheck in compose](https://stackoverflow.com/questions/31746182/docker-compose-wait-for-container-x-before-starting-y)
+- [advance depens_on docker](https://stackoverflow.com/questions/52699899/depends-on-doesnt-wait-for-another-service-in-docker-compose-1-22-0)
 
 ## Author
 
